@@ -56,4 +56,4 @@ const statusCallback = asyncHandler(async (req, res) => {
   console.log(paymentStatus);
 });
 
-export { createInvoice };
+export { createInvoice, statusCallback };
