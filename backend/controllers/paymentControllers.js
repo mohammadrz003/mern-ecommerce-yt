@@ -53,7 +53,39 @@ const createInvoice = asyncHandler(async (req, res) => {
 const statusCallback = asyncHandler(async (req, res) => {
   const paymentStatus = req.body;
 
-  console.log(paymentStatus);
+  // webhook verification logic
+  if (!paymentStatus.sign) {
+    res.status(400);
+    throw new Error("Payload is not valid!");
+  }
+
+  const { sign, ...data } = paymentStatus;
+
+  const paymentStatusHash = crypto
+    .createHash("md5")
+    .update(
+      Buffer.from(JSON.stringify(data)).toString("base64") +
+        process.env.CRYPTOMUS_PAYMENT_API_KEY
+    )
+    .digest("hex");
+
+  if (paymentStatusHash !== sign) {
+    res.status(400);
+    throw new Error("Signature is not valid!");
+  }
+
+  // process the payment
+  let order = await Order.findOne({ "paymentResult.id": data.uuid });
+  order.paymentResult.status = data.status;
+
+  if (data.status === "paid" || data.status === "paid_over") {
+    order.isPaid = true;
+    order.paidAt = new Date().toISOString();
+  }
+
+  order.save();
+
+  res.sendStatus(200);
 });
 
 export { createInvoice, statusCallback };
