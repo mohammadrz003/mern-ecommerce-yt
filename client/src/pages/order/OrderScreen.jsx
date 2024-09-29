@@ -219,25 +219,25 @@
                   <div className="flex justify-between item-center">
                     <span className="text-gray-500">Items</span>
                     <span className="text-lime-700 font-bold">
-                      ${addDecimals(order.itemsPrice)}
+                    ₹{addDecimals(order.itemsPrice)}
                     </span>
                   </div>
                   <div className="flex justify-between item-center">
                     <span className="text-gray-500">Shipping</span>
                     <span className="text-lime-700 font-bold">
-                      ${addDecimals(order.shippingPrice)}
+                    ₹{addDecimals(order.shippingPrice)}
                     </span>
                   </div>
                   <div className="flex justify-between item-center">
                     <span className="text-gray-500">Tax</span>
                     <span className="text-lime-700 font-bold">
-                      ${addDecimals(order.taxPrice)}
+                    ₹{addDecimals(order.taxPrice)}
                     </span>
                   </div>
                   <div className="flex justify-between item-center">
                     <span className="text-gray-500">Total</span>
                     <span className="text-lime-700 font-bold">
-                      ${addDecimals(order.totalPrice)}
+                    ₹{addDecimals(order.totalPrice)}
                     </span>
                   </div>
                 </div>

@@ -93,7 +93,7 @@ const ProductDetail = ({ product }) => {
             rhoncus aenean vel elit scelerisque
           </p>
           <span className="font-bold text-palette-chineseBlack text-3xl mt-7">
-            ${(Math.round(product.price * 100) / 100).toFixed(2)}
+          ₹{(Math.round(product.price * 100) / 100).toFixed(2)}
           </span>
           <div className="flex flex-wrap mt-7 gap-5">
             {product.countInStock > 0 ? (

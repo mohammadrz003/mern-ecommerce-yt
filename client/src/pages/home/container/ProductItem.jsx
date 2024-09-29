@@ -39,7 +39,7 @@ const ProductItem = (props) => {
       )}
       {!isShown && (
         <span className="py-2 px-4 w-full h-full text-palette-chineseBlack font-medium">
-          ${product.price}
+          ₹{product.price}
         </span>
       )}
     </li>
