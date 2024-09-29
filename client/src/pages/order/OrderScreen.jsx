@@ -61,6 +61,34 @@ const OrderScreen = () => {
     setPaymentLoading(true);
 
     // request to the backend to create invoice and then redirect the user to the payment URL
+    switch (order.paymentMethod) {
+      case "Cryptocurrency": {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        };
+
+        const { data } = await axios.post(
+          "/api/payment/create-invoice",
+          {
+            totalAmount: addDecimals(order.totalPrice),
+            orderId,
+          },
+          config
+        );
+
+        window.location.href = data.result.url;
+        break;
+      }
+
+      case "Fiat": {
+        // your logic goes here...
+        break;
+      }
+      default:
+        break;
+    }
 
     setPaymentLoading(false);
   };
