@@ -186,7 +186,7 @@ const ProductListScreen = () => {
                               <div className="flex items-center gap-x-2">
                                 <div>
                                   <h2 className="font-medium text-gray-800">
-                                    ${product.price}
+                                  ₹{product.price}
                                   </h2>
                                 </div>
                               </div>

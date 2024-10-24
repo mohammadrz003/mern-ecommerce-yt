@@ -63,7 +63,7 @@ const CartScreen = () => {
                   item)
                 </span>
                 <span className="text-lime-700 font-bold">
-                  $
+                ₹
                   {cartItems
                     .reduce((acc, item) => acc + item.price * item.qty, 0)
                     .toFixed(2)}

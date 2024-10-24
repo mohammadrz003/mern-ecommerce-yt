@@ -49,7 +49,7 @@ const CartProductItem = ({ item }) => {
           </div>
         </div>
       </td>
-      <td>${item.price}</td>
+      <td>₹{item.price}</td>
       <td>
         <div className="flex flex-col">
           <QuantityInput
@@ -64,7 +64,7 @@ const CartProductItem = ({ item }) => {
           )}
         </div>
       </td>
-      <td>${(item.price * item.qty).toFixed(2)}</td>
+      <td>₹{(item.price * item.qty).toFixed(2)}</td>
     </tr>
   );
 };

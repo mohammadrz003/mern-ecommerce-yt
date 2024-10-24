@@ -27,7 +27,7 @@ const orderSchema = mongoose.Schema(
       required: true,
     },
     paymentResult: {
-      id: { type: String, unique: true },
+      id: { type: String },
       status: { type: String },
     },
     itemsPrice: {
